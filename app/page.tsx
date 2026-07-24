@@ -2,65 +2,70 @@ import WalletConnect from './components/WalletConnect';
 
 export default function Home() {
   const features = [
-    ['Smart Wallet Radar', 'Track wallets before moves become obvious.'],
-    ['AI Research Engine', 'Turn blockchain data into market intelligence.'],
-    ['On-chain Alerts', 'Monitor important activity in real time.'],
+    ['Smart Wallet Intelligence', 'Follow high conviction wallets and detect moves before the market reacts.'],
+    ['AI Market Research', 'Transform blockchain activity into actionable trading intelligence.'],
+    ['Real-Time Alerts', 'Stay ahead with instant notifications for important on-chain events.'],
   ];
 
   const activity = [
-    ['0x71...92A', 'Bought SOL', '+$142K'],
-    ['0x8F...31B', 'Accumulated ETH', '+$89K'],
+    ['0x71...92A', 'Accumulated SOL', '+$142K'],
+    ['0x8F...31B', 'Bought ETH', '+$89K'],
     ['0x4C...88D', 'Moved USDC', '$250K'],
   ];
 
   return (
-    <main className="min-h-screen bg-black text-white overflow-hidden relative">
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,_rgba(0,255,170,0.18),transparent_35%),radial-gradient(circle_at_bottom_left,_rgba(80,100,255,0.18),transparent_35%)]" />
-      <div className="relative">
-        <nav className="max-w-7xl mx-auto flex justify-between items-center px-8 py-6">
-          <div className="text-2xl font-bold bg-gradient-to-r from-cyan-400 to-purple-500 bg-clip-text text-transparent">Neuron</div>
+    <main className="min-h-screen bg-black text-white overflow-hidden">
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,_rgba(0,255,170,0.16),transparent_35%),radial-gradient(circle_at_bottom_left,_rgba(70,90,255,0.16),transparent_35%)]" />
+
+      <div className="relative max-w-7xl mx-auto px-8">
+        <nav className="flex justify-between items-center py-8">
+          <div className="text-3xl font-bold tracking-tight">Neuron</div>
           <WalletConnect />
         </nav>
 
-        <section className="max-w-7xl mx-auto px-8 py-20 grid lg:grid-cols-2 gap-16 items-center">
+        <section className="grid lg:grid-cols-2 gap-16 items-center py-24">
           <div>
-            <span className="text-cyan-400">AI Crypto Intelligence Platform</span>
-            <h1 className="text-6xl md:text-7xl font-bold mt-5 tracking-tight">
-              Your AI brain for the blockchain.
+            <p className="text-cyan-400 uppercase tracking-widest text-sm">Crypto Intelligence Terminal</p>
+            <h1 className="text-6xl md:text-7xl font-bold leading-tight mt-6">
+              The AI brain for your crypto portfolio.
             </h1>
-            <p className="text-zinc-400 text-xl mt-6">
-              Neuron analyzes markets, tracks smart wallets, and discovers opportunities before the crowd.
+            <p className="text-zinc-400 text-xl mt-8 max-w-xl">
+              Neuron combines AI analysis, smart wallet tracking, alerts, and execution tools into one powerful trading intelligence platform.
             </p>
-            <div className="mt-8"><WalletConnect /></div>
+            <div className="mt-10">
+              <WalletConnect />
+            </div>
           </div>
 
-          <div className="rounded-3xl border border-cyan-500/20 bg-zinc-950/80 backdrop-blur p-8 shadow-2xl shadow-cyan-500/10">
+          <div className="rounded-3xl border border-zinc-800 bg-zinc-950/80 backdrop-blur p-8 shadow-2xl">
             <div className="flex justify-between text-sm text-cyan-400">
-              <span>Neuron Terminal</span><span>ONLINE</span>
+              <span>NEURON TERMINAL</span>
+              <span>LIVE</span>
             </div>
-            <div className="mt-8 grid gap-4">
-              <div className="rounded-xl border border-zinc-800 p-5 bg-zinc-900/50">
-                Portfolio Intelligence
-                <div className="text-3xl font-bold mt-2">$128,420.52</div>
-                <div className="text-emerald-400 mt-2">+12.4% today</div>
-              </div>
-              <div className="rounded-xl border border-zinc-800 p-5 bg-zinc-900/50">
-                Smart Wallet Activity
-                {activity.map(([wallet, action, amount]) => (
-                  <div key={wallet} className="flex justify-between mt-4 text-sm">
-                    <span>{wallet} · {action}</span><span className="text-cyan-300">{amount}</span>
-                  </div>
-                ))}
-              </div>
+
+            <div className="mt-8 rounded-2xl border border-zinc-800 p-6">
+              <p className="text-zinc-400">Portfolio Intelligence</p>
+              <h2 className="text-4xl font-bold mt-3">$128,420.52</h2>
+              <p className="text-emerald-400 mt-2">+12.4% today</p>
+            </div>
+
+            <div className="mt-5 rounded-2xl border border-zinc-800 p-6">
+              <p className="text-zinc-400">Smart Wallet Activity</p>
+              {activity.map(([wallet, action, amount]) => (
+                <div key={wallet} className="flex justify-between mt-5 text-sm">
+                  <span>{wallet} · {action}</span>
+                  <span className="text-cyan-300">{amount}</span>
+                </div>
+              ))}
             </div>
           </div>
         </section>
 
-        <section className="max-w-7xl mx-auto px-8 pb-20 grid md:grid-cols-3 gap-6">
+        <section className="grid md:grid-cols-3 gap-6 pb-24">
           {features.map(([title, description]) => (
-            <div key={title} className="rounded-2xl border border-zinc-800 p-8 bg-zinc-950/60 hover:border-cyan-400/50 transition">
-              <h2 className="text-xl font-semibold">{title}</h2>
-              <p className="text-zinc-500 mt-3">{description}</p>
+            <div key={title} className="rounded-2xl border border-zinc-800 bg-zinc-950/60 p-8 hover:border-cyan-400/50 transition">
+              <h3 className="text-xl font-semibold">{title}</h3>
+              <p className="text-zinc-500 mt-4">{description}</p>
             </div>
           ))}
         </section>
