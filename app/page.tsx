@@ -1,3 +1,5 @@
+import WalletConnect from './components/WalletConnect';
+
 export default function Home() {
   const features = [
     ['Smart Wallet Radar', 'Track wallets before moves become obvious.'],
@@ -15,9 +17,7 @@ export default function Home() {
     <main className="min-h-screen bg-black text-white">
       <nav className="max-w-7xl mx-auto flex justify-between items-center px-8 py-6">
         <div className="text-2xl font-bold">Neuron</div>
-        <button className="rounded-full bg-white text-black px-6 py-3 font-semibold">
-          Connect Wallet
-        </button>
+        <WalletConnect />
       </nav>
 
       <section className="max-w-7xl mx-auto px-8 py-20 grid lg:grid-cols-2 gap-16 items-center">
@@ -29,6 +29,7 @@ export default function Home() {
           <p className="text-zinc-400 text-xl mt-6">
             Neuron analyzes markets, tracks smart wallets, and discovers opportunities before the crowd.
           </p>
+          <div className="mt-8"><WalletConnect /></div>
         </div>
 
         <div className="rounded-3xl border border-zinc-800 bg-zinc-950 p-8">
@@ -36,20 +37,16 @@ export default function Home() {
             <span>Neuron Terminal</span>
             <span>ONLINE</span>
           </div>
-
           <div className="mt-8 grid gap-4">
             <div className="rounded-xl border border-zinc-800 p-5">
               Portfolio Intelligence
               <div className="text-3xl font-bold mt-2">$128,420.52</div>
-              <div className="text-green-400 mt-2">+12.4% today</div>
             </div>
-
             <div className="rounded-xl border border-zinc-800 p-5">
               Smart Wallet Activity
               {activity.map(([wallet, action, amount]) => (
                 <div key={wallet} className="flex justify-between mt-4 text-sm">
-                  <span>{wallet} · {action}</span>
-                  <span>{amount}</span>
+                  <span>{wallet} · {action}</span><span>{amount}</span>
                 </div>
               ))}
             </div>
